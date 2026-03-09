@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kadali Mohan Kiran — Portfolio</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Icons & Libs -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="css/style.css"/>
+
+  <!-- Three.js (loaded before body) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <!-- Particles -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+</head>
+<body>
+
+  <!-- Particle Canvas -->
+  <div id="particles-js" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;"></div>
+
+  <!-- Custom Cursor -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-outline"></div>
+
+  <!-- ── NAVBAR ── -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-logo">MK<span class="dot">.</span></div>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#hero"           data-num="01">Home</a></li>
+      <li><a href="#about"          data-num="02">About</a></li>
+      <li><a href="#skills"         data-num="03">Skills</a></li>
+      <li><a href="#projects"       data-num="04">Projects</a></li>
+      <li><a href="#certifications" data-num="05">Certs</a></li>
+      <li><a href="#contact"        data-num="06">Contact</a></li>
+    </ul>
+
+    <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Hire Me</button>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section class="hero" id="hero">
+    <canvas id="hero-3d-canvas"></canvas>
+
+    <div class="container hero-content">
+      <div class="hero-left" data-aos="fade-right">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          Available for opportunities
+        </div>
+
+        <h1 class="hero-name">
+          Kadali<br/>
+          <span class="accent">Mohan</span><br/>
+          Kiran
+        </h1>
+
+        <p class="hero-role">CS Engineer &amp; ML Enthusiast</p>
+
+        <p class="hero-bio">
+          Building intelligent systems at the intersection of
+          <strong>machine learning</strong> and <strong>precision agriculture</strong>.
+          Currently pursuing B.Tech in Computer Science at LPU,
+          crafting data-driven solutions that make a real-world impact.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#contact" class="btn-primary"><i class="fa-solid fa-paper-plane"></i> Get In Touch</a>
+          <a href="assets/resume.pdf" target="_blank" rel="noopener noreferrer" class="btn-ghost"><i class="fa-solid fa-file-pdf"></i> Resume</a>
+          <a href="#projects" class="btn-ghost">View Work <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat"><span class="stat-num">2+</span><span class="stat-label">Projects</span></div>
+          <div class="stat-divider"></div>
+          <div class="stat"><span class="stat-num">6</span><span class="stat-label">Certs</span></div>
+          <div class="stat-divider"></div>
+          <div class="stat"><span class="stat-num">100+</span><span class="stat-label">LeetCode</span></div>
+        </div>
+      </div>
+
+      <div class="hero-right" data-aos="fade-left" data-aos-delay="200">
+        <div class="hero-image-wrap">
+          <div class="image-ring ring-1"></div>
+          <div class="image-ring ring-2"></div>
+          <div class="profile-placeholder">
+            <img src="assets/profile.png" alt="Mohan Kiran" />
+          </div>
+          <div class="floating-card card-ml"><i class="fa-solid fa-brain"></i> Machine Learning</div>
+          <div class="floating-card card-python"><i class="fa-brands fa-python"></i> Python</div>
+          <div class="floating-card card-oracle"><i class="fa-solid fa-certificate"></i> Oracle Certified</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ABOUT ── -->
+  <section class="about section" id="about">
+    <div class="container">
+      <div class="section-label" data-aos="fade-up">About Me</div>
+      <h2 class="section-title" data-aos="fade-up">The story so far</h2>
+
+      <div class="about-grid">
+        <div class="about-image-col" data-aos="fade-right">
+          <div class="about-img-frame">
+            <div class="about-profile-placeholder">
+              <img src="assets/profile.png" alt="Mohan Kiran" />
+            </div>
+            <div class="about-img-deco"></div>
+          </div>
+          <div class="about-info-cards">
+            <div class="info-card glass-card">
+              <i class="fa-solid fa-location-dot"></i>
+              <div><strong>Location</strong><span>Andhra Pradesh, India</span></div>
+            </div>
+            <div class="info-card glass-card">
+              <i class="fa-solid fa-graduation-cap"></i>
+              <div><strong>University</strong><span>LPU</span></div>
+            </div>
+            <div class="info-card glass-card">
+              <i class="fa-solid fa-star"></i>
+              <div><strong>CGPA</strong><span>7.89 / 10</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-text-col" data-aos="fade-left">
+          <p class="about-intro">
+            I'm a passionate Computer Science student with a deep interest in
+            <strong>Machine Learning</strong> and <strong>Generative AI</strong>.
+            My journey evolved into building real-world systems that solve
+            healthcare and agriculture problems.
+          </p>
+
+          <div class="about-highlights">
+            <div class="highlight-item glass-card">
+              <div class="highlight-icon"><i class="fa-solid fa-seedling"></i></div>
+              <div>
+                <h4>Precision Agriculture</h4>
+                <p>Built ML systems for early-stage crop disease detection.</p>
+              </div>
+            </div>
+            <div class="highlight-item glass-card">
+              <div class="highlight-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+              <div>
+                <h4>Healthcare Analytics</h4>
+                <p>Developed SVM-based diabetes prediction systems.</p>
+              </div>
+            </div>
+            <div class="highlight-item glass-card">
+              <div class="highlight-icon"><i class="fa-solid fa-robot"></i></div>
+              <div>
+                <h4>Generative AI</h4>
+                <p>Oracle-certified GenAI professional, exploring LLM prompt engineering.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SKILLS ── -->
+  <section class="skills section" id="skills">
+    <div class="container">
+      <div class="section-label" data-aos="fade-up">Expertise</div>
+      <h2 class="section-title" data-aos="fade-up">Skills &amp; Tools</h2>
+
+      <div class="skills-tabs" data-aos="fade-up">
+        <button class="tab-btn active" data-tab="technical">Technical</button>
+        <button class="tab-btn"        data-tab="soft">Soft Skills</button>
+      </div>
+
+      <div class="tab-content active" id="technical" data-aos="fade-up">
+        <div class="skills-grid">
+          <!-- Languages -->
+          <div class="skill-category glass-card">
+            <h3 class="skill-cat-title"><i class="fa-solid fa-code"></i> Languages</h3>
+            <div class="skill-bars">
+              <div class="skill-bar-item">
+                <div class="skill-info"><span>Python</span><span>90%</span></div>
+                <div class="skill-track"><div class="skill-fill" style="--w:90%;"></div></div>
+              </div>
+              <div class="skill-bar-item">
+                <div class="skill-info"><span>Java</span><span>75%</span></div>
+                <div class="skill-track"><div class="skill-fill" style="--w:75%;"></div></div>
+              </div>
+              <div class="skill-bar-item">
+                <div class="skill-info"><span>C++</span><span>70%</span></div>
+                <div class="skill-track"><div class="skill-fill" style="--w:70%;"></div></div>
+              </div>
+              <div class="skill-bar-item">
+                <div class="skill-info"><span>C</span><span>65%</span></div>
+                <div class="skill-track"><div class="skill-fill" style="--w:65%;"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ML & Data Science -->
+          <div class="skill-category glass-card">
+            <h3 class="skill-cat-title"><i class="fa-solid fa-brain"></i> ML &amp; Data Science</h3>
+            <div class="tech-cards">
+              <div class="tech-card"><i class="fa-brands fa-python"></i><span>Scikit-learn</span></div>
+              <div class="tech-card"><i class="fa-solid fa-chart-line"></i><span>NumPy</span></div>
+              <div class="tech-card"><i class="fa-solid fa-table"></i><span>Pandas</span></div>
+              <div class="tech-card"><i class="fa-solid fa-chart-bar"></i><span>Matplotlib</span></div>
+            </div>
+          </div>
+
+          <!-- AI & Tools -->
+          <div class="skill-category glass-card">
+            <h3 class="skill-cat-title"><i class="fa-solid fa-wand-magic-sparkles"></i> AI &amp; Tools</h3>
+            <div class="tech-cards">
+              <div class="tech-card"><i class="fa-solid fa-robot"></i><span>Generative AI</span></div>
+              <div class="tech-card"><i class="fa-solid fa-plug"></i><span>No-Code AI</span></div>
+              <div class="tech-card"><i class="fa-brands fa-github"></i><span>Git &amp; GitHub</span></div>
+              <div class="tech-card"><i class="fa-solid fa-cloud"></i><span>Oracle Cloud</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-content hidden" id="soft" data-aos="fade-up">
+        <div class="soft-skills-grid">
+          <div class="soft-card glass-card">
+            <div class="soft-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+            <h4>Attention to Detail</h4>
+            <p>Meticulous in code quality and documentation.</p>
+          </div>
+          <div class="soft-card glass-card">
+            <div class="soft-icon"><i class="fa-solid fa-people-group"></i></div>
+            <h4>Collaboration</h4>
+            <p>Thrives in team environments and open communication.</p>
+          </div>
+          <div class="soft-card glass-card">
+            <div class="soft-icon"><i class="fa-solid fa-lightbulb"></i></div>
+            <h4>Critical Thinking</h4>
+            <p>Analytical approach to breaking down complex problems.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PROJECTS ── -->
+  <section class="projects section" id="projects">
+    <div class="container">
+      <div class="section-label" data-aos="fade-up">My Work</div>
+      <h2 class="section-title" data-aos="fade-up">Featured Projects</h2>
+
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <div class="project-card glass-card" data-aos="fade-up">
+          <div class="project-image">
+            <div class="project-img-placeholder proj-1"><i class="fa-solid fa-seedling"></i></div>
+            <div class="project-overlay">
+              <a href="https://github.com/mohankiran18/crop-disease-predictor" target="_blank" class="btn-primary" style="font-size:0.72rem;padding:10px 20px;"><i class="fa-brands fa-github"></i> GitHub</a>
+              <a href="https://crop-disease-predictor-vmjt6rbgeaqhqhpnhkajhz.streamlit.app/" target="_blank" class="btn-ghost" style="font-size:0.72rem;padding:10px 20px;"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-tags"><span>Python</span><span>Scikit-learn</span><span>Pandas</span></div>
+            <h3 class="project-title">Crop Disease Prediction System</h3>
+            <p class="project-desc">ML-based system for early-stage crop disease detection, enabling farmers to take timely preventive actions.</p>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card glass-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="project-image">
+            <div class="project-img-placeholder proj-2"><i class="fa-solid fa-heart-pulse"></i></div>
+            <div class="project-overlay">
+              <a href="https://github.com/mohankiran18/diabetes_prediction" target="_blank" class="btn-primary" style="font-size:0.72rem;padding:10px 20px;"><i class="fa-brands fa-github"></i> GitHub</a>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-tags"><span>Python</span><span>SVM</span><span>NumPy</span></div>
+            <h3 class="project-title">Diabetes Prediction System</h3>
+            <p class="project-desc">Supervised ML system using Support Vector Machine classifier to predict diabetes based on health parameters.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="projects-cta" data-aos="fade-up">
+        <a href="https://github.com/mohankiran18" target="_blank" class="btn-ghost"><i class="fa-brands fa-github"></i> View All on GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CERTIFICATIONS ── -->
+  <section class="certifications section" id="certifications">
+    <div class="container">
+      <div class="section-label" data-aos="fade-up">Recognition</div>
+      <h2 class="section-title" data-aos="fade-up">Certs &amp; Achievements</h2>
+
+      <div class="cert-grid">
+        <div class="cert-card glass-card" data-aos="zoom-in">
+          <div class="cert-icon oracle"><i class="fa-solid fa-cloud"></i></div>
+          <h4>OCI Generative AI Pro</h4>
+          <p>Oracle Cloud Infrastructure 2025.</p>
+          <a href="https://drive.google.com/file/d/1G1HrdaTxBDoU0SWkw1urhKroxZ9Cs0Fc/view?usp=drive_link" target="_blank" class="cert-proof-link"><i class="fa-solid fa-arrow-right"></i> View Proof</a>
+        </div>
+        <div class="cert-card glass-card" data-aos="zoom-in" data-aos-delay="80">
+          <div class="cert-icon oracle"><i class="fa-solid fa-layer-group"></i></div>
+          <h4>OCI AI Foundations</h4>
+          <p>Oracle Cloud Infrastructure 2025.</p>
+          <a href="https://drive.google.com/file/d/1tl5l7wqcJYidEgV6in3AvjA2Wm-xGTBl/view?usp=drive_link" target="_blank" class="cert-proof-link"><i class="fa-solid fa-arrow-right"></i> View Proof</a>
+        </div>
+        <div class="cert-card glass-card" data-aos="zoom-in" data-aos-delay="160">
+          <div class="cert-icon infosys"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+          <h4>Gen AI No-Code Apps</h4>
+          <p>Infosys Springboard.</p>
+          <a href="https://drive.google.com/file/d/1z6e7kFZesej6UAXulNFMdEiC1eyN261P/view?usp=drive_link" target="_blank" class="cert-proof-link"><i class="fa-solid fa-arrow-right"></i> View Proof</a>
+        </div>
+        <div class="cert-card glass-card" data-aos="zoom-in">
+          <div class="cert-icon infosys"><i class="fa-solid fa-microchip"></i></div>
+          <h4>ChatGPT-4 Prompt Eng.</h4>
+          <p>Infosys Springboard.</p>
+          <a href="https://drive.google.com/file/d/1sZBYGqMuiH90WSaTKnodGJmVKHx93BM8/view?usp=drive_link" target="_blank" class="cert-proof-link"><i class="fa-solid fa-arrow-right"></i> View Proof</a>
+        </div>
+        <div class="cert-card glass-card" data-aos="zoom-in" data-aos-delay="80">
+          <div class="cert-icon" style="background:rgba(139,92,246,0.1);color:#a78bfa;border-color:rgba(139,92,246,0.2);"><i class="fa-solid fa-video"></i></div>
+          <h4>Master GenAI &amp; Tools</h4>
+          <p>Udemy (14 Hrs).</p>
+          <a href="https://drive.google.com/file/d/1l-y6m08-kPBpqD0kI0nojasz_d51kpcF/view?usp=drive_link" target="_blank" class="cert-proof-link"><i class="fa-solid fa-arrow-right"></i> View Proof</a>
+        </div>
+        <div class="cert-card glass-card" data-aos="zoom-in" data-aos-delay="160">
+          <div class="cert-icon" style="background:rgba(139,92,246,0.1);color:#a78bfa;border-color:rgba(139,92,246,0.2);"><i class="fa-solid fa-robot"></i></div>
+          <h4>ChatGPT Made Easy</h4>
+          <p>Udemy AI Essentials.</p>
+          <a href="https://drive.google.com/file/d/1lBbgRg-lETv6RZK-hXup66v-xMP6aP1F/view?usp=drive_link" target="_blank" class="cert-proof-link"><i class="fa-solid fa-arrow-right"></i> View Proof</a>
+        </div>
+      </div>
+
+      <!-- Achievements -->
+      <div class="achievement-wrap" data-aos="fade-up">
+        <div class="achievement-card glass-card">
+          <div class="achievement-icon" style="color:#4ade80;"><i class="fa-brands fa-hackerrank"></i></div>
+          <div>
+            <h4>5-Star HackerRank Python Rating</h4>
+            <p>Achieved a 5-Star rating in Python, demonstrating strong command over problem solving and algorithms.</p>
+          </div>
+        </div>
+        <div class="achievement-card glass-card">
+          <div class="achievement-icon" style="color:#fbbf24;"><i class="fa-solid fa-laptop-code"></i></div>
+          <div>
+            <h4>100+ Problems Solved on LeetCode</h4>
+            <p>Consistently sharpening Data Structures and Algorithms skills through competitive practice.</p>
+            <a href="https://leetcode.com/u/haHTr3Ukys/" target="_blank" class="cert-proof-link" style="color:#fbbf24;margin-top:10px;"><i class="fa-solid fa-arrow-right"></i> View Profile</a>
+          </div>
+        </div>
+        <div class="achievement-card glass-card">
+          <div class="achievement-icon" style="color:#38bdf8;"><i class="fa-solid fa-code-branch"></i></div>
+          <div>
+            <h4>Data Structures &amp; Algorithms</h4>
+            <p>CSE Pathshala · 35+ hours live summer training on core CS fundamentals.</p>
+            <a href="https://drive.google.com/file/d/1N1mmoS4xSA42k46_PQ0o4PYK1DL4pkCB/view?usp=drive_link" target="_blank" class="cert-proof-link" style="margin-top:10px;"><i class="fa-solid fa-arrow-right"></i> View Proof</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONTACT ── -->
+  <section class="contact section" id="contact">
+    <div class="container">
+      <div class="section-label" data-aos="fade-up">Say Hello</div>
+      <h2 class="section-title" data-aos="fade-up">Let's Connect</h2>
+
+      <div class="contact-grid">
+        <div class="contact-info" data-aos="fade-right">
+          <p class="contact-intro">
+            I'm currently open to internships, collaborations, and full-time opportunities.
+            Whether you have a project in mind or just want to say hi — my inbox is always open.
+          </p>
+          <div class="contact-links">
+            <a href="mailto:mohankiran.k2004@gmail.com" class="contact-link">
+              <div class="contact-link-icon"><i class="fa-solid fa-envelope"></i></div>
+              <div><strong>Email</strong><span>mohankiran.k2004@gmail.com</span></div>
+            </a>
+            <a href="tel:+916309895954" class="contact-link">
+              <div class="contact-link-icon"><i class="fa-solid fa-phone"></i></div>
+              <div><strong>Phone</strong><span>+91 6309895954</span></div>
+            </a>
+            <a href="https://www.linkedin.com/in/mohank18/" target="_blank" class="contact-link">
+              <div class="contact-link-icon"><i class="fa-brands fa-linkedin-in"></i></div>
+              <div><strong>LinkedIn</strong><span>in/mohank18</span></div>
+            </a>
+            <a href="https://github.com/mohankiran18" target="_blank" class="contact-link">
+              <div class="contact-link-icon"><i class="fa-brands fa-github"></i></div>
+              <div><strong>GitHub</strong><span>github.com/mohankiran18</span></div>
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-form-wrap glass-card" data-aos="fade-left">
+          <form class="contact-form" onsubmit="handleFormSubmit(event)">
+            <div class="form-group"><label>Full Name</label><input type="text" id="name" placeholder="Your name" required/></div>
+            <div class="form-group"><label>Email</label><input type="email" id="email" placeholder="your@email.com" required/></div>
+            <div class="form-group"><label>Subject</label><input type="text" id="subject" placeholder="Project inquiry" required/></div>
+            <div class="form-group"><label>Message</label><textarea id="message" rows="4" placeholder="Hello..." required></textarea></div>
+            <button type="submit" class="btn-primary submit-btn">
+              <span class="btn-text"><i class="fa-solid fa-paper-plane"></i> Send Message</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-logo">MK.</div>
+      <p class="footer-tagline">Building intelligent solutions, one model at a time.</p>
+      <div class="footer-socials">
+        <a href="https://www.linkedin.com/in/mohank18/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://github.com/mohankiran18" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+      </div>
+      <p class="footer-copy">© 2026 Kadali Mohan Kiran. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+   <script>
+(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="itvNnbg8OPYDjZEXmA5pq";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+</script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>emailjs.init('UTc-rriJItIQjnX0w');</script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
