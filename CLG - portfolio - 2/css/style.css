@@ -710,3 +710,26 @@ body.cursor-ready .cursor-outline { opacity: 1; }
   body,a,button { cursor:auto; }
   .navbar.scrolled { padding:12px 20px; }
 }
+
+/* ===== CHATBASE WIDGET — hide blank box before script loads ===== */
+/* The widget renders an empty iframe/div container before JS initialises,
+   showing as a plain coloured box. We hide ALL chatbase elements by default
+   and only reveal them once Chatbase injects its own inline styles. */
+
+/* Hide everything chatbase-related at first */
+[id*="chatbase"],
+[class*="chatbase"],
+iframe[src*="chatbase.co"],
+#itvNnbg8OPYDjZEXmA5pq {
+  opacity: 0 !important;
+  pointer-events: none;
+  transition: opacity 0.5s ease 1s;
+}
+
+/* Once Chatbase's JS runs it adds inline style="..." — that's our signal to show it */
+[id*="chatbase"][style],
+[class*="chatbase"][style],
+iframe[src*="chatbase.co"][style] {
+  opacity: 1 !important;
+  pointer-events: auto;
+}
