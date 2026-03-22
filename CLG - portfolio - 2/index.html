@@ -19,10 +19,6 @@
 
 <canvas id="galaxy-canvas"></canvas>
 
-<div class="orb o1"></div>
-<div class="orb o2"></div>
-<div class="orb o3"></div>
-
 <div class="cur" id="cdot"><div class="cur-dot"></div></div>
 <div class="cur" id="cring"><div class="cur-ring" id="cringEl"></div></div>
 
@@ -62,7 +58,7 @@
     <div class="hero-grid">
       <div>
         <div class="hero-tag" data-aos="fade-down"><span class="htdot"></span>Available for internships &amp; collaborations</div>
-        <h1 class="hero-name" data-aos="fade-right" data-aos-delay="100">Kadali<br/><span class="grad">Mohan Kiran</span></h1>
+        <h1 class="hero-name" data-aos="fade-right" data-aos-delay="100">Kadali <span class="grad">Mohan</span><br/>Kiran</h1>
         <p class="hero-role" data-aos="fade-right" data-aos-delay="200"><span id="typed"></span><span class="tcursor">|</span></p>
         <p class="hero-bio" data-aos="fade-right" data-aos-delay="300">Building intelligent systems at the intersection of <strong>machine learning</strong> and <strong>precision agriculture</strong>. B.Tech CS student at LPU crafting data-driven solutions that create real-world impact.</p>
         <div class="hero-actions" data-aos="fade-up" data-aos-delay="400">
@@ -78,8 +74,6 @@
       </div>
       <div class="hero-visual" data-aos="zoom-in" data-aos-delay="300">
         <div class="hero-img-c">
-          <div class="hring"></div>
-          <div class="hring2"></div>
           <div class="hero-img-w"><img src="assets/profile.png" alt="Mohan Kiran"/></div>
           <div class="hfc fc-ml"><i class="fa-solid fa-brain"></i> Machine Learning</div>
           <div class="hfc fc-py"><i class="fa-brands fa-python"></i> Python</div>
@@ -267,11 +261,23 @@
       <div class="cform-wrap" data-aos="fade-left" data-aos-delay="300">
         <form onsubmit="handleSub(event)">
           <div class="frow">
-            <div class="fg"><label>Full Name</label><input type="text" placeholder="Your name" required/></div>
-            <div class="fg"><label>Email</label><input type="email" placeholder="your@email.com" required/></div>
+            <div class="fg">
+              <label>Full Name</label>
+              <input type="text" id="name" placeholder="Your name" required/>
+            </div>
+            <div class="fg">
+              <label>Email</label>
+              <input type="email" id="email" placeholder="your@email.com" required/>
+            </div>
           </div>
-          <div class="fg"><label>Subject</label><input type="text" placeholder="Project inquiry" required/></div>
-          <div class="fg"><label>Message</label><textarea placeholder="Hello Mohan..." required></textarea></div>
+          <div class="fg">
+            <label>Subject</label>
+            <input type="text" id="subject" placeholder="Project inquiry" required/>
+          </div>
+          <div class="fg">
+            <label>Message</label>
+            <textarea id="message" placeholder="Hello Mohan..." required></textarea>
+          </div>
           <button type="submit" class="sbtn"><i class="fa-solid fa-paper-plane"></i> Send Message</button>
         </form>
       </div>
