@@ -24,66 +24,75 @@
 
   <style>
     /* ── EDUCATION SECTION ── */
-    .education {
-      position: relative;
-      z-index: 1;
-    }
+    .education { position: relative; z-index: 1; }
 
     .education-timeline {
       position: relative;
-      max-width: 800px;
+      max-width: 860px;
       margin: 0 auto;
-      padding: 20px 0;
+      padding: 10px 0 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
     }
 
-    /* Vertical line */
+    /* Vertical center line */
     .education-timeline::before {
       content: '';
       position: absolute;
       left: 50%;
-      top: 0;
-      bottom: 0;
+      top: 0; bottom: 0;
       width: 2px;
-      background: linear-gradient(to bottom, transparent, rgba(139,92,246,0.5), rgba(99,102,241,0.5), transparent);
+      background: linear-gradient(to bottom, transparent, rgba(139,92,246,0.45) 20%, rgba(99,102,241,0.45) 80%, transparent);
       transform: translateX(-50%);
+      z-index: 0;
     }
 
-    .edu-item {
-      position: relative;
-      width: 45%;
-      margin-bottom: 48px;
+    .edu-row {
+      display: grid;
+      grid-template-columns: 1fr 48px 1fr;
+      align-items: center;
+      gap: 0;
     }
 
-    .edu-item:nth-child(odd) {
-      left: 0;
-      text-align: right;
-      padding-right: 40px;
+    /* Left card */
+    .edu-row .edu-card-wrap:first-child {
+      grid-column: 1;
+      padding-right: 28px;
     }
 
-    .edu-item:nth-child(even) {
-      left: 55%;
-      text-align: left;
-      padding-left: 40px;
-    }
-
-    /* Connector dot */
-    .edu-item::after {
-      content: '';
-      position: absolute;
-      top: 24px;
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #8b5cf6, #6366f1);
-      box-shadow: 0 0 12px rgba(139,92,246,0.6);
+    /* Center dot column */
+    .edu-dot-col {
+      grid-column: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       z-index: 2;
     }
 
-    .edu-item:nth-child(odd)::after  { right: -7px; }
-    .edu-item:nth-child(even)::after { left: -7px;  }
+    .edu-dot {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #8b5cf6, #6366f1);
+      box-shadow: 0 0 0 4px rgba(139,92,246,0.15), 0 0 16px rgba(139,92,246,0.4);
+      flex-shrink: 0;
+    }
+
+    /* Right card */
+    .edu-row .edu-card-wrap:last-child {
+      grid-column: 3;
+      padding-left: 28px;
+    }
+
+    /* Empty placeholder */
+    .edu-empty {
+      grid-column: 3;
+      padding-left: 28px;
+    }
 
     .edu-card {
-      padding: 24px 28px;
+      padding: 24px 26px;
       border-radius: 16px;
       background: rgba(255,255,255,0.04);
       border: 1px solid rgba(255,255,255,0.08);
@@ -101,20 +110,17 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 44px;
-      height: 44px;
+      width: 42px; height: 42px;
       border-radius: 12px;
       background: linear-gradient(135deg, rgba(139,92,246,0.2), rgba(99,102,241,0.2));
       border: 1px solid rgba(139,92,246,0.25);
-      margin-bottom: 14px;
-      font-size: 1.1rem;
+      margin-bottom: 12px;
+      font-size: 1rem;
       color: #a78bfa;
     }
 
-    .edu-item:nth-child(odd) .edu-icon { margin-left: auto; }
-
     .edu-degree {
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-weight: 600;
       color: #f1f5f9;
       margin-bottom: 4px;
@@ -122,14 +128,14 @@
     }
 
     .edu-institution {
-      font-size: 0.88rem;
+      font-size: 0.87rem;
       font-weight: 600;
       color: #a78bfa;
       margin-bottom: 6px;
     }
 
     .edu-location {
-      font-size: 0.78rem;
+      font-size: 0.77rem;
       color: #94a3b8;
       display: flex;
       align-items: center;
@@ -137,13 +143,11 @@
       margin-bottom: 8px;
     }
 
-    .edu-item:nth-child(odd) .edu-location { justify-content: flex-end; }
-
     .edu-location i { font-size: 0.72rem; color: #8b5cf6; }
 
     .edu-period {
       display: inline-block;
-      font-size: 0.73rem;
+      font-size: 0.72rem;
       color: #64748b;
       background: rgba(255,255,255,0.05);
       border: 1px solid rgba(255,255,255,0.07);
@@ -156,36 +160,40 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      font-size: 0.82rem;
+      font-size: 0.81rem;
       color: #4ade80;
       background: rgba(74,222,128,0.08);
       border: 1px solid rgba(74,222,128,0.2);
       border-radius: 8px;
       padding: 5px 12px;
-      margin-top: 6px;
+      margin-top: 4px;
     }
 
-    .edu-score i { font-size: 0.75rem; }
+    .edu-score i { font-size: 0.74rem; }
 
-    /* Mobile responsive */
+    /* Mobile: stack to single column */
     @media (max-width: 700px) {
       .education-timeline::before { left: 20px; }
 
-      .edu-item {
-        width: 100%;
-        left: 0 !important;
-        text-align: left !important;
-        padding-left: 52px !important;
-        padding-right: 0 !important;
+      .edu-row {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
       }
 
-      .edu-item::after {
-        left: 13px !important;
-        right: auto !important;
+      .edu-dot-col {
+        align-self: flex-start;
+        width: 40px;
+        order: -1;
+        margin-bottom: 12px;
       }
 
-      .edu-item .edu-icon { margin-left: 0 !important; }
-      .edu-item .edu-location { justify-content: flex-start !important; }
+      .edu-row .edu-card-wrap:first-child,
+      .edu-row .edu-card-wrap:last-child {
+        padding: 0;
+      }
+
+      .edu-empty { display: none; }
     }
   </style>
 </head>
@@ -346,33 +354,33 @@
 
       <div class="education-timeline">
 
-        <!-- LPU -->
-        <div class="edu-item" data-aos="fade-right">
-          <div class="edu-card">
-            <div class="edu-icon"><i class="fa-solid fa-graduation-cap"></i></div>
-            <div class="edu-degree">Bachelor of Technology — Computer Science &amp; Engineering</div>
-            <div class="edu-institution">Lovely Professional University</div>
-            <div class="edu-location">
-              <i class="fa-solid fa-location-dot"></i> Punjab, India
-            </div>
-            <div class="edu-period"><i class="fa-regular fa-calendar"></i> &nbsp;Aug 2023 — Present</div>
-            <div>
+        <!-- Row 1: LPU on left, empty right -->
+        <div class="edu-row" data-aos="fade-up">
+          <div class="edu-card-wrap">
+            <div class="edu-card">
+              <div class="edu-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+              <div class="edu-degree">Bachelor of Technology — Computer Science &amp; Engineering</div>
+              <div class="edu-institution">Lovely Professional University</div>
+              <div class="edu-location"><i class="fa-solid fa-location-dot"></i> Punjab, India</div>
+              <div class="edu-period"><i class="fa-regular fa-calendar"></i> &nbsp;Aug 2023 — Present</div>
               <span class="edu-score"><i class="fa-solid fa-star"></i> CGPA: 7.89 / 10</span>
             </div>
           </div>
+          <div class="edu-dot-col"><div class="edu-dot"></div></div>
+          <div class="edu-empty"></div>
         </div>
 
-        <!-- Bhashyam -->
-        <div class="edu-item" data-aos="fade-left">
-          <div class="edu-card">
-            <div class="edu-icon"><i class="fa-solid fa-school"></i></div>
-            <div class="edu-degree">Intermediate — PCM (Physics, Chemistry, Mathematics)</div>
-            <div class="edu-institution">Bhashyam Junior College</div>
-            <div class="edu-location">
-              <i class="fa-solid fa-location-dot"></i> Rajamahendravaram, Andhra Pradesh
-            </div>
-            <div class="edu-period"><i class="fa-regular fa-calendar"></i> &nbsp;Jun 2021 — Mar 2023</div>
-            <div>
+        <!-- Row 2: empty left, Bhashyam on right -->
+        <div class="edu-row" data-aos="fade-up">
+          <div class="edu-empty"></div>
+          <div class="edu-dot-col"><div class="edu-dot"></div></div>
+          <div class="edu-card-wrap">
+            <div class="edu-card">
+              <div class="edu-icon"><i class="fa-solid fa-school"></i></div>
+              <div class="edu-degree">Intermediate — PCM (Physics, Chemistry, Mathematics)</div>
+              <div class="edu-institution">Bhashyam Junior College</div>
+              <div class="edu-location"><i class="fa-solid fa-location-dot"></i> Rajamahendravaram, Andhra Pradesh</div>
+              <div class="edu-period"><i class="fa-regular fa-calendar"></i> &nbsp;Jun 2021 — Mar 2023</div>
               <span class="edu-score"><i class="fa-solid fa-trophy"></i> Percentage: 92%</span>
             </div>
           </div>
@@ -596,9 +604,9 @@
             Whether you have a project in mind or just want to say hi — my inbox is always open.
           </p>
           <div class="contact-links">
-            <a href="mailto:mohankiran.k2004@gmail.com" class="contact-link">
+            <a href="/cdn-cgi/l/email-protection#1c7173747d7277756e7d7232772e2c2c285c7b717d7570327f7371" class="contact-link">
               <div class="contact-link-icon"><i class="fa-solid fa-envelope"></i></div>
-              <div><strong>Email</strong><span>mohankiran.k2004@gmail.com</span></div>
+              <div><strong>Email</strong><span><span class="__cf_email__" data-cfemail="38555750595653514a595616530a08080c785f55595154165b5755">[email&#160;protected]</span></span></div>
             </a>
             <a href="tel:+916309895954" class="contact-link">
               <div class="contact-link-icon"><i class="fa-solid fa-phone"></i></div>
@@ -644,12 +652,7 @@
   </footer>
 
   <!-- Scripts -->
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="itvNnbg8OPYDjZEXmA5pq";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
 </script>
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-  <script>emailjs.init('UTc-rriJItIQjnX0w');</script>
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script src="js/main.js"></script>
-</body>
-</html>
+  <scrip
