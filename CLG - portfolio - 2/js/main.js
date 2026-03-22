@@ -489,3 +489,44 @@ function handleFormSubmit(e) {
     setTimeout(() => { btn.innerHTML = original; btn.style.background = ''; }, 4000);
   });
 }
+
+// ===== CHATBASE BLANK BOX FIX =====
+// Chatbase renders an empty container before its JS loads,
+// appearing as a blank coloured box. We watch the DOM and
+// hide any chatbase element that has no meaningful content,
+// then reveal it once Chatbase populates it.
+(function fixChatbase() {
+  function hideChatbaseGhosts() {
+    // Find all elements related to chatbase
+    document.querySelectorAll('[id*="chatbase"], [class*="chatbase"], iframe[src*="chatbase"]').forEach(el => {
+      const hasContent = el.children.length > 0 || el.src || (el.offsetWidth > 0 && el.offsetHeight > 0 && el.innerHTML.trim().length > 0);
+      if (!hasContent) {
+        el.style.opacity = '0';
+        el.style.pointerEvents = 'none';
+      } else {
+        el.style.opacity = '1';
+        el.style.pointerEvents = 'auto';
+      }
+    });
+  }
+
+  // Run once DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', hideChatbaseGhosts);
+  } else {
+    hideChatbaseGhosts();
+  }
+
+  // Watch for Chatbase injecting elements
+  const observer = new MutationObserver(() => {
+    hideChatbaseGhosts();
+  });
+  observer.observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['style', 'class'] });
+
+  // Final cleanup after full page load
+  window.addEventListener('load', () => {
+    setTimeout(hideChatbaseGhosts, 500);
+    setTimeout(hideChatbaseGhosts, 1500);
+    setTimeout(hideChatbaseGhosts, 3000);
+  });
+})();
