@@ -21,6 +21,173 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <!-- Particles -->
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+  <style>
+    /* ── EDUCATION SECTION ── */
+    .education {
+      position: relative;
+      z-index: 1;
+    }
+
+    .education-timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px 0;
+    }
+
+    /* Vertical line */
+    .education-timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, transparent, rgba(139,92,246,0.5), rgba(99,102,241,0.5), transparent);
+      transform: translateX(-50%);
+    }
+
+    .edu-item {
+      position: relative;
+      width: 45%;
+      margin-bottom: 48px;
+    }
+
+    .edu-item:nth-child(odd) {
+      left: 0;
+      text-align: right;
+      padding-right: 40px;
+    }
+
+    .edu-item:nth-child(even) {
+      left: 55%;
+      text-align: left;
+      padding-left: 40px;
+    }
+
+    /* Connector dot */
+    .edu-item::after {
+      content: '';
+      position: absolute;
+      top: 24px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #8b5cf6, #6366f1);
+      box-shadow: 0 0 12px rgba(139,92,246,0.6);
+      z-index: 2;
+    }
+
+    .edu-item:nth-child(odd)::after  { right: -7px; }
+    .edu-item:nth-child(even)::after { left: -7px;  }
+
+    .edu-card {
+      padding: 24px 28px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(12px);
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .edu-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(139,92,246,0.35);
+      box-shadow: 0 12px 40px rgba(139,92,246,0.12);
+    }
+
+    .edu-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(139,92,246,0.2), rgba(99,102,241,0.2));
+      border: 1px solid rgba(139,92,246,0.25);
+      margin-bottom: 14px;
+      font-size: 1.1rem;
+      color: #a78bfa;
+    }
+
+    .edu-item:nth-child(odd) .edu-icon { margin-left: auto; }
+
+    .edu-degree {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #f1f5f9;
+      margin-bottom: 4px;
+      line-height: 1.4;
+    }
+
+    .edu-institution {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #a78bfa;
+      margin-bottom: 6px;
+    }
+
+    .edu-location {
+      font-size: 0.78rem;
+      color: #94a3b8;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin-bottom: 8px;
+    }
+
+    .edu-item:nth-child(odd) .edu-location { justify-content: flex-end; }
+
+    .edu-location i { font-size: 0.72rem; color: #8b5cf6; }
+
+    .edu-period {
+      display: inline-block;
+      font-size: 0.73rem;
+      color: #64748b;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 20px;
+      padding: 3px 12px;
+      margin-bottom: 10px;
+    }
+
+    .edu-score {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.82rem;
+      color: #4ade80;
+      background: rgba(74,222,128,0.08);
+      border: 1px solid rgba(74,222,128,0.2);
+      border-radius: 8px;
+      padding: 5px 12px;
+      margin-top: 6px;
+    }
+
+    .edu-score i { font-size: 0.75rem; }
+
+    /* Mobile responsive */
+    @media (max-width: 700px) {
+      .education-timeline::before { left: 20px; }
+
+      .edu-item {
+        width: 100%;
+        left: 0 !important;
+        text-align: left !important;
+        padding-left: 52px !important;
+        padding-right: 0 !important;
+      }
+
+      .edu-item::after {
+        left: 13px !important;
+        right: auto !important;
+      }
+
+      .edu-item .edu-icon { margin-left: 0 !important; }
+      .edu-item .edu-location { justify-content: flex-start !important; }
+    }
+  </style>
 </head>
 <body>
 
@@ -38,10 +205,11 @@
     <ul class="nav-links" id="navLinks">
       <li><a href="#hero"           data-num="01">Home</a></li>
       <li><a href="#about"          data-num="02">About</a></li>
-      <li><a href="#skills"         data-num="03">Skills</a></li>
-      <li><a href="#projects"       data-num="04">Projects</a></li>
-      <li><a href="#certifications" data-num="05">Certs</a></li>
-      <li><a href="#contact"        data-num="06">Contact</a></li>
+      <li><a href="#education"      data-num="03">Education</a></li>
+      <li><a href="#skills"         data-num="04">Skills</a></li>
+      <li><a href="#projects"       data-num="05">Projects</a></li>
+      <li><a href="#certifications" data-num="06">Certs</a></li>
+      <li><a href="#contact"        data-num="07">Contact</a></li>
     </ul>
 
     <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Hire Me</button>
@@ -166,6 +334,50 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── EDUCATION ── -->
+  <section class="education section" id="education">
+    <div class="container">
+      <div class="section-label" data-aos="fade-up">Academic Journey</div>
+      <h2 class="section-title" data-aos="fade-up">Education</h2>
+
+      <div class="education-timeline">
+
+        <!-- LPU -->
+        <div class="edu-item" data-aos="fade-right">
+          <div class="edu-card">
+            <div class="edu-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+            <div class="edu-degree">Bachelor of Technology — Computer Science &amp; Engineering</div>
+            <div class="edu-institution">Lovely Professional University</div>
+            <div class="edu-location">
+              <i class="fa-solid fa-location-dot"></i> Punjab, India
+            </div>
+            <div class="edu-period"><i class="fa-regular fa-calendar"></i> &nbsp;Aug 2023 — Present</div>
+            <div>
+              <span class="edu-score"><i class="fa-solid fa-star"></i> CGPA: 7.89 / 10</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bhashyam -->
+        <div class="edu-item" data-aos="fade-left">
+          <div class="edu-card">
+            <div class="edu-icon"><i class="fa-solid fa-school"></i></div>
+            <div class="edu-degree">Intermediate — PCM (Physics, Chemistry, Mathematics)</div>
+            <div class="edu-institution">Bhashyam Junior College</div>
+            <div class="edu-location">
+              <i class="fa-solid fa-location-dot"></i> Rajamahendravaram, Andhra Pradesh
+            </div>
+            <div class="edu-period"><i class="fa-regular fa-calendar"></i> &nbsp;Jun 2021 — Mar 2023</div>
+            <div>
+              <span class="edu-score"><i class="fa-solid fa-trophy"></i> Percentage: 92%</span>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
